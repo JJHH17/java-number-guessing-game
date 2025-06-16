@@ -14,15 +14,20 @@ public class Main {
         // Game loop
         while (true) {
             System.out.println("Guess a number from 0 to 100 (Enter quit to leave)");
-            int userInput = Integer.valueOf(input.nextLine());
+            String userInput = input.nextLine();
 
-            if (userInput == randomNum) {
+            if (Integer.parseInt(userInput) == randomNum) {
                 System.out.println("You win! Number was: " + randomNum);
                 break;
-            } else if (userInput > randomNum) {
+
+            } else if (Integer.parseInt(userInput) > randomNum) {
                 System.out.println("Too high! Try again.");
-            } else {
+
+            } else if (Integer.parseInt(userInput) < randomNum) {
                 System.out.println("Too low! Try again.");
+
+            } else {
+                System.out.println("Please enter a valid input"); // TODO: Add error handling
             }
         }
     }
